@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D1AEA5024D05FFB0089CE63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AEA4F24D05FFB0089CE63 /* AppDelegate.swift */; };
+		3D1AEA5224D05FFB0089CE63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AEA5124D05FFB0089CE63 /* SceneDelegate.swift */; };
+		3D1AEA5424D05FFB0089CE63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AEA5324D05FFB0089CE63 /* ViewController.swift */; };
+		3D1AEA5724D05FFB0089CE63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AEA5524D05FFB0089CE63 /* Main.storyboard */; };
+		3D1AEA5924D05FFD0089CE63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AEA5824D05FFD0089CE63 /* Assets.xcassets */; };
+		3D1AEA5C24D05FFD0089CE63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AEA5A24D05FFD0089CE63 /* LaunchScreen.storyboard */; };
+		3D1AEA6124D05FFD0089CE63 /* BadmintonActivityClassifier WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3D1AEA6024D05FFD0089CE63 /* BadmintonActivityClassifier WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3D1AEA6724D05FFD0089CE63 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AEA6524D05FFD0089CE63 /* Interface.storyboard */; };
+		3D1AEA6924D05FFD0089CE63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AEA6824D05FFD0089CE63 /* Assets.xcassets */; };
+		3D1AEA7024D05FFE0089CE63 /* BadmintonActivityClassifier WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3D1AEA6F24D05FFE0089CE63 /* BadmintonActivityClassifier WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3D1AEA7524D05FFE0089CE63 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AEA7424D05FFE0089CE63 /* InterfaceController.swift */; };
+		3D1AEA7724D05FFE0089CE63 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AEA7624D05FFE0089CE63 /* ExtensionDelegate.swift */; };
+		3D1AEA7924D05FFE0089CE63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AEA7824D05FFE0089CE63 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3D1AEA6224D05FFD0089CE63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D1AEA4424D05FFB0089CE63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D1AEA5F24D05FFD0089CE63;
+			remoteInfo = "BadmintonActivityClassifier WatchKit App";
+		};
+		3D1AEA7124D05FFE0089CE63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D1AEA4424D05FFB0089CE63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D1AEA6E24D05FFE0089CE63;
+			remoteInfo = "BadmintonActivityClassifier WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3D1AEA8024D05FFE0089CE63 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3D1AEA7024D05FFE0089CE63 /* BadmintonActivityClassifier WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D1AEA8424D05FFE0089CE63 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				3D1AEA6124D05FFD0089CE63 /* BadmintonActivityClassifier WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3D1AEA4C24D05FFB0089CE63 /* BadmintonActivityClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BadmintonActivityClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D1AEA4F24D05FFB0089CE63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3D1AEA5124D05FFB0089CE63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3D1AEA5324D05FFB0089CE63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3D1AEA5624D05FFB0089CE63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3D1AEA5824D05FFD0089CE63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D1AEA5B24D05FFD0089CE63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3D1AEA5D24D05FFD0089CE63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D1AEA6024D05FFD0089CE63 /* BadmintonActivityClassifier WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BadmintonActivityClassifier WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D1AEA6624D05FFD0089CE63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		3D1AEA6824D05FFD0089CE63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D1AEA6A24D05FFD0089CE63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D1AEA6F24D05FFE0089CE63 /* BadmintonActivityClassifier WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BadmintonActivityClassifier WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D1AEA7424D05FFE0089CE63 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		3D1AEA7624D05FFE0089CE63 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		3D1AEA7824D05FFE0089CE63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D1AEA7A24D05FFE0089CE63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D1AEA4924D05FFB0089CE63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D1AEA6C24D05FFE0089CE63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D1AEA4324D05FFB0089CE63 = {
+			isa = PBXGroup;
+			children = (
+				3D1AEA4E24D05FFB0089CE63 /* BadmintonActivityClassifier */,
+				3D1AEA6424D05FFD0089CE63 /* BadmintonActivityClassifier WatchKit App */,
+				3D1AEA7324D05FFE0089CE63 /* BadmintonActivityClassifier WatchKit Extension */,
+				3D1AEA4D24D05FFB0089CE63 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3D1AEA4D24D05FFB0089CE63 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D1AEA4C24D05FFB0089CE63 /* BadmintonActivityClassifier.app */,
+				3D1AEA6024D05FFD0089CE63 /* BadmintonActivityClassifier WatchKit App.app */,
+				3D1AEA6F24D05FFE0089CE63 /* BadmintonActivityClassifier WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D1AEA4E24D05FFB0089CE63 /* BadmintonActivityClassifier */ = {
+			isa = PBXGroup;
+			children = (
+				3D1AEA4F24D05FFB0089CE63 /* AppDelegate.swift */,
+				3D1AEA5124D05FFB0089CE63 /* SceneDelegate.swift */,
+				3D1AEA5324D05FFB0089CE63 /* ViewController.swift */,
+				3D1AEA5524D05FFB0089CE63 /* Main.storyboard */,
+				3D1AEA5824D05FFD0089CE63 /* Assets.xcassets */,
+				3D1AEA5A24D05FFD0089CE63 /* LaunchScreen.storyboard */,
+				3D1AEA5D24D05FFD0089CE63 /* Info.plist */,
+			);
+			path = BadmintonActivityClassifier;
+			sourceTree = "<group>";
+		};
+		3D1AEA6424D05FFD0089CE63 /* BadmintonActivityClassifier WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				3D1AEA6524D05FFD0089CE63 /* Interface.storyboard */,
+				3D1AEA6824D05FFD0089CE63 /* Assets.xcassets */,
+				3D1AEA6A24D05FFD0089CE63 /* Info.plist */,
+			);
+			path = "BadmintonActivityClassifier WatchKit App";
+			sourceTree = "<group>";
+		};
+		3D1AEA7324D05FFE0089CE63 /* BadmintonActivityClassifier WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3D1AEA7424D05FFE0089CE63 /* InterfaceController.swift */,
+				3D1AEA7624D05FFE0089CE63 /* ExtensionDelegate.swift */,
+				3D1AEA7824D05FFE0089CE63 /* Assets.xcassets */,
+				3D1AEA7A24D05FFE0089CE63 /* Info.plist */,
+			);
+			path = "BadmintonActivityClassifier WatchKit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3D1AEA4B24D05FFB0089CE63 /* BadmintonActivityClassifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D1AEA8524D05FFE0089CE63 /* Build configuration list for PBXNativeTarget "BadmintonActivityClassifier" */;
+			buildPhases = (
+				3D1AEA4824D05FFB0089CE63 /* Sources */,
+				3D1AEA4924D05FFB0089CE63 /* Frameworks */,
+				3D1AEA4A24D05FFB0089CE63 /* Resources */,
+				3D1AEA8424D05FFE0089CE63 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D1AEA6324D05FFD0089CE63 /* PBXTargetDependency */,
+			);
+			name = BadmintonActivityClassifier;
+			productName = BadmintonActivityClassifier;
+			productReference = 3D1AEA4C24D05FFB0089CE63 /* BadmintonActivityClassifier.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3D1AEA5F24D05FFD0089CE63 /* BadmintonActivityClassifier WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D1AEA8124D05FFE0089CE63 /* Build configuration list for PBXNativeTarget "BadmintonActivityClassifier WatchKit App" */;
+			buildPhases = (
+				3D1AEA5E24D05FFD0089CE63 /* Resources */,
+				3D1AEA8024D05FFE0089CE63 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D1AEA7224D05FFE0089CE63 /* PBXTargetDependency */,
+			);
+			name = "BadmintonActivityClassifier WatchKit App";
+			productName = "BadmintonActivityClassifier WatchKit App";
+			productReference = 3D1AEA6024D05FFD0089CE63 /* BadmintonActivityClassifier WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		3D1AEA6E24D05FFE0089CE63 /* BadmintonActivityClassifier WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D1AEA7D24D05FFE0089CE63 /* Build configuration list for PBXNativeTarget "BadmintonActivityClassifier WatchKit Extension" */;
+			buildPhases = (
+				3D1AEA6B24D05FFE0089CE63 /* Sources */,
+				3D1AEA6C24D05FFE0089CE63 /* Frameworks */,
+				3D1AEA6D24D05FFE0089CE63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BadmintonActivityClassifier WatchKit Extension";
+			productName = "BadmintonActivityClassifier WatchKit Extension";
+			productReference = 3D1AEA6F24D05FFE0089CE63 /* BadmintonActivityClassifier WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3D1AEA4424D05FFB0089CE63 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Eki Rifaldi";
+				TargetAttributes = {
+					3D1AEA4B24D05FFB0089CE63 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					3D1AEA5F24D05FFD0089CE63 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					3D1AEA6E24D05FFE0089CE63 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 3D1AEA4724D05FFB0089CE63 /* Build configuration list for PBXProject "BadmintonActivityClassifier" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3D1AEA4324D05FFB0089CE63;
+			productRefGroup = 3D1AEA4D24D05FFB0089CE63 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3D1AEA4B24D05FFB0089CE63 /* BadmintonActivityClassifier */,
+				3D1AEA5F24D05FFD0089CE63 /* BadmintonActivityClassifier WatchKit App */,
+				3D1AEA6E24D05FFE0089CE63 /* BadmintonActivityClassifier WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D1AEA4A24D05FFB0089CE63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D1AEA5C24D05FFD0089CE63 /* LaunchScreen.storyboard in Resources */,
+				3D1AEA5924D05FFD0089CE63 /* Assets.xcassets in Resources */,
+				3D1AEA5724D05FFB0089CE63 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D1AEA5E24D05FFD0089CE63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D1AEA6924D05FFD0089CE63 /* Assets.xcassets in Resources */,
+				3D1AEA6724D05FFD0089CE63 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D1AEA6D24D05FFE0089CE63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D1AEA7924D05FFE0089CE63 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D1AEA4824D05FFB0089CE63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D1AEA5424D05FFB0089CE63 /* ViewController.swift in Sources */,
+				3D1AEA5024D05FFB0089CE63 /* AppDelegate.swift in Sources */,
+				3D1AEA5224D05FFB0089CE63 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D1AEA6B24D05FFE0089CE63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D1AEA7724D05FFE0089CE63 /* ExtensionDelegate.swift in Sources */,
+				3D1AEA7524D05FFE0089CE63 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3D1AEA6324D05FFD0089CE63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D1AEA5F24D05FFD0089CE63 /* BadmintonActivityClassifier WatchKit App */;
+			targetProxy = 3D1AEA6224D05FFD0089CE63 /* PBXContainerItemProxy */;
+		};
+		3D1AEA7224D05FFE0089CE63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D1AEA6E24D05FFE0089CE63 /* BadmintonActivityClassifier WatchKit Extension */;
+			targetProxy = 3D1AEA7124D05FFE0089CE63 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3D1AEA5524D05FFB0089CE63 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D1AEA5624D05FFB0089CE63 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3D1AEA5A24D05FFD0089CE63 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D1AEA5B24D05FFD0089CE63 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3D1AEA6524D05FFD0089CE63 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D1AEA6624D05FFD0089CE63 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3D1AEA7B24D05FFE0089CE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3D1AEA7C24D05FFE0089CE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D1AEA7E24D05FFE0089CE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WFP7XFVDQT;
+				INFOPLIST_FILE = "BadmintonActivityClassifier WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekirifaldi.BadmintonActivityClassifier.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		3D1AEA7F24D05FFE0089CE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WFP7XFVDQT;
+				INFOPLIST_FILE = "BadmintonActivityClassifier WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekirifaldi.BadmintonActivityClassifier.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		3D1AEA8224D05FFE0089CE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WFP7XFVDQT;
+				IBSC_MODULE = BadmintonActivityClassifier_WatchKit_Extension;
+				INFOPLIST_FILE = "BadmintonActivityClassifier WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekirifaldi.BadmintonActivityClassifier.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		3D1AEA8324D05FFE0089CE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WFP7XFVDQT;
+				IBSC_MODULE = BadmintonActivityClassifier_WatchKit_Extension;
+				INFOPLIST_FILE = "BadmintonActivityClassifier WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekirifaldi.BadmintonActivityClassifier.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		3D1AEA8624D05FFE0089CE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WFP7XFVDQT;
+				INFOPLIST_FILE = BadmintonActivityClassifier/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekirifaldi.BadmintonActivityClassifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3D1AEA8724D05FFE0089CE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WFP7XFVDQT;
+				INFOPLIST_FILE = BadmintonActivityClassifier/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekirifaldi.BadmintonActivityClassifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D1AEA4724D05FFB0089CE63 /* Build configuration list for PBXProject "BadmintonActivityClassifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D1AEA7B24D05FFE0089CE63 /* Debug */,
+				3D1AEA7C24D05FFE0089CE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D1AEA7D24D05FFE0089CE63 /* Build configuration list for PBXNativeTarget "BadmintonActivityClassifier WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D1AEA7E24D05FFE0089CE63 /* Debug */,
+				3D1AEA7F24D05FFE0089CE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D1AEA8124D05FFE0089CE63 /* Build configuration list for PBXNativeTarget "BadmintonActivityClassifier WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D1AEA8224D05FFE0089CE63 /* Debug */,
+				3D1AEA8324D05FFE0089CE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D1AEA8524D05FFE0089CE63 /* Build configuration list for PBXNativeTarget "BadmintonActivityClassifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D1AEA8624D05FFE0089CE63 /* Debug */,
+				3D1AEA8724D05FFE0089CE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3D1AEA4424D05FFB0089CE63 /* Project object */;
+}
