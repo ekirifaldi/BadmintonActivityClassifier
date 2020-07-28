@@ -7,14 +7,66 @@
 //
 
 import UIKit
+import WatchConnectivity
+import HealthKit
 
 class ViewController: UIViewController {
-
+    
+    let healthStore = HKHealthStore()
+    var wcSession : WCSession! = nil
+    var isRecording = false
+    var csvString = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        wcSession = WCSession.default
+        wcSession.delegate = self
+        wcSession.activate()
+        
+        let allTypes = Set([HKObjectType.workoutType(),
+                            HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+                            HKObjectType.quantityType(forIdentifier: .distanceCycling)!,
+                            HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+                            HKObjectType.quantityType(forIdentifier: .heartRate)!])
+
+        healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
+            if !success {
+                // Handle the error here.
+            }
+        }
     }
+}
 
 
+//MARK: - WatchKit
+extension ViewController: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        
+        if let instruction = message["instructionFromWatch"] as? String {
+            print(instruction)
+        }
+        
+        if let csv = message["motionFromWatch"] as? String {
+            print(csv)
+            csvString = csvString.appending(csv)
+        }
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    
 }
 
