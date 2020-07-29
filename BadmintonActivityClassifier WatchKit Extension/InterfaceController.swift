@@ -11,6 +11,7 @@ import Foundation
 import WatchConnectivity
 import CoreMotion
 import HealthKit
+import CoreML
 
 
 class InterfaceController: WKInterfaceController {
@@ -24,6 +25,7 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
+    
     var wcSession : WCSession!
     var motion = CMMotionManager()
     var dataMotionArray:[Dictionary<String, AnyObject>] =  Array()
@@ -34,6 +36,7 @@ class InterfaceController: WKInterfaceController {
     var currentQuery: HKQuery?
     
     var isRecording = false
+    let sensorsUpdateFrequency = 1.0 / 10.0
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -97,14 +100,15 @@ extension InterfaceController {
         print("Start DeviceMotion")
         var csvString = ""
         var dataMotionCounter = 0
-        motion.deviceMotionUpdateInterval  = 1.0 / 75.0
+        motion.deviceMotionUpdateInterval  = sensorsUpdateFrequency
         motion.startDeviceMotionUpdates(to: OperationQueue.current!) {
             (data, error) in
             //            print("Motion")
             print(data as Any)
             if let trueData =  data {
                 
-                csvString = "\(self.getNowTime()),\(trueData.userAcceleration.x),\(trueData.userAcceleration.y),\(trueData.userAcceleration.z),\(trueData.rotationRate.x),\(trueData.rotationRate.y),\(trueData.rotationRate.z)\n"
+                //csvString ganti dengan arrayList of Object (double motion data)
+                csvString = "\(trueData.userAcceleration.x),\(trueData.userAcceleration.y),\(trueData.userAcceleration.z),\(trueData.rotationRate.x),\(trueData.rotationRate.y),\(trueData.rotationRate.z)\n"
                 dataMotionCounter += 1
                 
                 if dataMotionCounter == 10 {
@@ -112,7 +116,6 @@ extension InterfaceController {
                     csvString = ""
                     dataMotionCounter = 0
                 }
-                
             }
         }
         return
@@ -124,16 +127,16 @@ extension InterfaceController {
         }
     }
     
-    func getNowTime() -> String {
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        let nanoseconds = calendar.component(.nanosecond, from: date)
-        let strDate = "\(hour):\(minutes):\(seconds).\(nanoseconds)"
-        return strDate
-    }
+//    func getNowTime() -> String {
+//        let date = Date()
+//        let calendar = Calendar.current
+//        let hour = calendar.component(.hour, from: date)
+//        let minutes = calendar.component(.minute, from: date)
+//        let seconds = calendar.component(.second, from: date)
+//        let nanoseconds = calendar.component(.nanosecond, from: date)
+//        let strDate = "\(hour):\(minutes):\(seconds).\(nanoseconds)"
+//        return strDate
+//    }
 }
 
 //    MARK: - WCSession
