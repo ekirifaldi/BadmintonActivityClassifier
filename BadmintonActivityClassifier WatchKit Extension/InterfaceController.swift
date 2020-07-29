@@ -64,20 +64,28 @@ class InterfaceController: WKInterfaceController {
     
     @IBAction func btnPressed() {
         if(!isRecording){
-            let stopTitle = NSMutableAttributedString(string: "Stop Recording")
-            stopTitle.setAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], range: NSMakeRange(0, stopTitle.length))
-            button.setAttributedTitle(stopTitle)
-            startWorkout()
-            startDeviceMotion()
+            startRecording()
         }else{
-            stopDeviceMotion()
-            let exitTitle = NSMutableAttributedString(string: "Start Recording")
-            exitTitle.setAttributes([NSAttributedString.Key.foregroundColor: UIColor.green], range: NSMakeRange(0, exitTitle.length))
-            button.setAttributedTitle(exitTitle)
-            session?.stopActivity(with: Date())
-            labelHeart.setText("Heart Rate")
+            stopRecording()
         }
-        
+    }
+    
+    func startRecording(){
+        let stopTitle = NSMutableAttributedString(string: "Stop Recording")
+        stopTitle.setAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], range: NSMakeRange(0, stopTitle.length))
+        button.setAttributedTitle(stopTitle)
+        startWorkout()
+        startDeviceMotion()
+        isRecording = !isRecording
+    }
+    
+    func stopRecording(){
+        stopDeviceMotion()
+        let exitTitle = NSMutableAttributedString(string: "Start Recording")
+        exitTitle.setAttributes([NSAttributedString.Key.foregroundColor: UIColor.green], range: NSMakeRange(0, exitTitle.length))
+        button.setAttributedTitle(exitTitle)
+        session?.stopActivity(with: Date())
+        labelHeart.setText("Heart Rate")
         isRecording = !isRecording
     }
 }
@@ -133,27 +141,13 @@ extension InterfaceController: WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         
-        let instruction = message["messageFromIos"] as! String
+        if let instruction = message["instructionFromIos"] as? String {
+            print(instruction)
+            if instruction == "STOP" {
+                stopRecording()
+            }
+        }
         
-        print(instruction)
-        
-        //        switch instruction {
-        //        case "START":
-        //            labelInfo.setText("Recording data...")
-        //            dataMotionArray.removeAll()
-        //            startDeviceMotion()
-        //            break
-        //        case "STOP":
-        //            labelInfo.setText("Stopping...")
-        //            stopUpdates()
-        //            print("SIZE: \(dataMotionArray.count)")
-        //            let csvStr = generateCsvFormat(motionArray: dataMotionArray)
-        //            sendMessage(strMsg: csvStr)
-        //            dataMotionArray.removeAll()
-        //            break
-        //        default:
-        //            labelInfo.setText("Instruksi naon iyee...")
-        //        }
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -190,7 +184,7 @@ extension InterfaceController: HKWorkoutSessionDelegate{
                 healthStore.execute(query)
             }
         //Execute Query
-        case .stopped: //sebelumnya .ended
+        case .stopped:
             //Stop Query
             print("STOP: \(date)")
             healthStore.stop(self.currentQuery!)

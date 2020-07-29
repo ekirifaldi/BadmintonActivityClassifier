@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     
     let healthStore = HKHealthStore()
     var wcSession : WCSession! = nil
-    var isRecording = false
     var csvString = ""
     
     override func viewDidLoad() {
@@ -37,17 +36,22 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func btnStopPressed(_ sender: UIButton) {
+        sendInstruction(strInstruction: "STOP")
+    }
+    
 }
 
 
-//MARK: - WatchKit
+//MARK: - WatchConnectivity
 extension ViewController: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        
+        print("MESSAGE")
         if let instruction = message["instructionFromWatch"] as? String {
             print(instruction)
         }
@@ -67,6 +71,14 @@ extension ViewController: WCSessionDelegate {
         
     }
     
-    
+    func sendInstruction(strInstruction: String) {
+        let message = ["instructionFromIos":strInstruction]
+        
+        wcSession.sendMessage(message, replyHandler: nil) { (error) in
+            
+            print(error.localizedDescription)
+            
+        }
+    }
 }
 
