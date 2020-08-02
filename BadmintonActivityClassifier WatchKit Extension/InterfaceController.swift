@@ -36,7 +36,7 @@ class InterfaceController: WKInterfaceController {
     var currentQuery: HKQuery?
     
     var isRecording = false
-    let sensorsUpdateFrequency = 1.0 / 10.0
+    let sensorsUpdateFrequency = 1.0 / 75.0
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
