@@ -104,9 +104,11 @@ extension ViewController: WCSessionDelegate {
         }
         
         if let csv = message["motionFromWatch"] as? String {
-            print(csv)
+//            print(csv)
             //            csvString = csvString.appending(csv)
             convertCsvStrToArray(csvStr: csv)
+
+            createCsv(csvStr: csv)
         }
         
     }
@@ -178,6 +180,23 @@ extension ViewController {
                     self.currentIndexInPredictionWindow = 0
                 }
             }
+        }
+    }
+    
+    func createCsv(csvStr: String){
+        let fileManager = FileManager.default
+        do {
+            let path = try fileManager.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: false)
+            let fileURL = path.appendingPathComponent("CSVRecAcceGyro.csv")
+            print(fileURL)
+            try csvStr.write(to: fileURL, atomically: true, encoding: .utf8)
+            let items = [fileURL]
+            let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            DispatchQueue.main.async {
+                self.present(ac, animated: true)
+            }
+        } catch {
+            print("error creating file")
         }
     }
 }
