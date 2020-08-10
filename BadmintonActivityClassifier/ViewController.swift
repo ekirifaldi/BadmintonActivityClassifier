@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     struct ModelConstants {
         // Must be the same value you used while training
-        static let predictionWindowSize = 6
+        static let predictionWindowSize = 60
         // Must be the same value you used while training
         static let sensorsUpdateFrequency = 1.0 / 75.0
         static let stateInLength = 400
@@ -65,6 +65,8 @@ class ViewController: UIViewController {
         wcSession = WCSession.default
         wcSession.delegate = self
         wcSession.activate()
+        
+        print("viewDidLoad")
         
         let allTypes = Set([HKObjectType.workoutType(),
                             HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
@@ -160,13 +162,14 @@ extension ViewController {
                 // Update prediction array index
                 self.currentIndexInPredictionWindow += 1
                 
+                print(self.currentIndexInPredictionWindow)
                 // If data array is full - execute a prediction
                 if (self.currentIndexInPredictionWindow == ModelConstants.predictionWindowSize) {
                     // Move to main thread to update the UI
                     DispatchQueue.main.async {
                         // Use the predicted activity
 //                        self.label.text = self.activityPrediction() ?? "N/A" 
-                        print(self.activityPrediction() ?? "N/A")
+                        print("PREDICTION: \(self.activityPrediction() ?? "N/A")")
                     }
                     // Start a new prediction window from scratch
                     self.currentIndexInPredictionWindow = 0

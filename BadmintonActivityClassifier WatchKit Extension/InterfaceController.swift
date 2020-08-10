@@ -37,6 +37,7 @@ class InterfaceController: WKInterfaceController {
     
     var isRecording = false
     let sensorsUpdateFrequency = 1.0 / 75.0
+    let predictionWindowSize = 60
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -52,6 +53,8 @@ class InterfaceController: WKInterfaceController {
         wcSession = WCSession.default
         wcSession.delegate = self
         wcSession.activate()
+        
+        WKExtension.shared().isAutorotating = true
         
         //Check HealthStore
         guard HKHealthStore.isHealthDataAvailable() == true else {
@@ -104,17 +107,20 @@ extension InterfaceController {
         motion.startDeviceMotionUpdates(to: OperationQueue.current!) {
             (data, error) in
             //            print("Motion")
-            print(data as Any)
+//            print(data as Any)
             if let trueData =  data {
                 
                 //csvString ganti dengan arrayList of Object (double motion data)
-                csvString = "\(trueData.userAcceleration.x),\(trueData.userAcceleration.y),\(trueData.userAcceleration.z),\(trueData.rotationRate.x),\(trueData.rotationRate.y),\(trueData.rotationRate.z)\n"
+                csvString = csvString.appending("\(trueData.userAcceleration.x),\(trueData.userAcceleration.y),\(trueData.userAcceleration.z),\(trueData.rotationRate.x),\(trueData.rotationRate.y),\(trueData.rotationRate.z)\n")
                 dataMotionCounter += 1
+                print(dataMotionCounter)
                 
-                if dataMotionCounter == 10 {
+                if dataMotionCounter == self.predictionWindowSize {
                     self.sendMessage(strMsg: csvString, isMotion: true)
                     csvString = ""
                     dataMotionCounter = 0
+                    //sementara
+                    self.stopRecording()
                 }
             }
         }
@@ -238,7 +244,7 @@ extension InterfaceController: HKWorkoutSessionDelegate{
             DispatchQueue.main.async {
                 guard let sample = samples.first else { return }
                 let value = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
-                print("This line is executed!")
+//                print("This line is executed!")
                 self.labelHeart.setText(String(UInt16(value))) //Update label
             }
             
