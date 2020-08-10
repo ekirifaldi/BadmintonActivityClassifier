@@ -154,6 +154,8 @@ extension InterfaceController: WCSessionDelegate {
             print(instruction)
             if instruction == "STOP" {
                 stopRecording()
+            } else if instruction == "START" {
+                startRecording()
             }
         }
         

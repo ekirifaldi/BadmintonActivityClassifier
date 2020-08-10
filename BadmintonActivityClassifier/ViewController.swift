@@ -85,6 +85,9 @@ class ViewController: UIViewController {
         sendInstruction(strInstruction: "STOP")
     }
     
+    @IBAction func btnStartPressed(_ sender: UIButton) {
+        sendInstruction(strInstruction: "START")
+    }
 }
 
 
