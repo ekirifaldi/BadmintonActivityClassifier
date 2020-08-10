@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     struct ModelConstants {
         // Must be the same value you used while training
-        static let predictionWindowSize = 60
+        static let predictionWindowSize = 80
         // Must be the same value you used while training
         static let sensorsUpdateFrequency = 1.0 / 75.0
         static let stateInLength = 400
