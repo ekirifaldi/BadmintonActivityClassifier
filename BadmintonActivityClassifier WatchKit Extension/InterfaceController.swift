@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 import WatchConnectivity
 import CoreMotion
-import HealthKit
+//import HealthKit
 import CoreML
 
 
@@ -31,9 +31,9 @@ class InterfaceController: WKInterfaceController {
     var dataMotionArray:[Dictionary<String, AnyObject>] =  Array()
     
     //workout
-    let healthStore = HKHealthStore()
-    var session: HKWorkoutSession?
-    var currentQuery: HKQuery?
+//    let healthStore = HKHealthStore()
+//    var session: HKWorkoutSession?
+//    var currentQuery: HKQuery?
     
     var isRecording = false
     let sensorsUpdateFrequency = 1.0 / 75.0
@@ -57,10 +57,10 @@ class InterfaceController: WKInterfaceController {
         WKExtension.shared().isAutorotating = true
         
         //Check HealthStore
-        guard HKHealthStore.isHealthDataAvailable() == true else {
-            print("Health Data Not Avaliable")
-            return
-        }
+//        guard HKHealthStore.isHealthDataAvailable() == true else {
+//            print("Health Data Not Avaliable")
+//            return
+//        }
     }
     
     override func didDeactivate() {
@@ -80,7 +80,7 @@ class InterfaceController: WKInterfaceController {
         let stopTitle = NSMutableAttributedString(string: "Stop Recording")
         stopTitle.setAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], range: NSMakeRange(0, stopTitle.length))
         button.setAttributedTitle(stopTitle)
-        startWorkout()
+//        startWorkout()
         startDeviceMotion()
         isRecording = !isRecording
     }
@@ -90,7 +90,7 @@ class InterfaceController: WKInterfaceController {
         let exitTitle = NSMutableAttributedString(string: "Start Recording")
         exitTitle.setAttributes([NSAttributedString.Key.foregroundColor: UIColor.green], range: NSMakeRange(0, exitTitle.length))
         button.setAttributedTitle(exitTitle)
-        session?.stopActivity(with: Date())
+//        session?.stopActivity(with: Date())
         labelHeart.setText("Heart Rate")
         isRecording = !isRecording
     }
@@ -184,75 +184,75 @@ extension InterfaceController: WCSessionDelegate {
 }
 
 //MARK: - WorkOut
-extension InterfaceController: HKWorkoutSessionDelegate{
-    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
-        print("State: \(toState.rawValue)")
-        switch toState {
-        case .running:
-            print(date)
-            if let query = heartRateQuery(date){
-                self.currentQuery = query
-                healthStore.execute(query)
-            }
-        //Execute Query
-        case .stopped:
-            //Stop Query
-            print("STOP: \(date)")
-            healthStore.stop(self.currentQuery!)
-            session?.end()
-            session = nil
-        default:
-            print("Unexpected state: \(toState.rawValue)")
-        }
-    }
-    
-    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
-        //Do Nothing
-    }
-    
-    func startWorkout(){
-        // If a workout has already been started, do nothing.
-        if (session != nil) {
-            return
-        }
-        // Configure the workout session.
-        let workoutConfiguration = HKWorkoutConfiguration()
-        workoutConfiguration.activityType = .badminton
-        workoutConfiguration.locationType = .indoor
-        
-        do {
-            session = try HKWorkoutSession(healthStore: healthStore, configuration: workoutConfiguration)
-            session?.delegate = self
-        } catch {
-            fatalError("Unable to create workout session")
-        }
-        
-        
-        session?.startActivity(with: Date())
-        print("Start Workout Session")
-    }
-    
-    func heartRateQuery(_ startDate: Date) -> HKQuery? {
-        let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)
-        let datePredicate = HKQuery.predicateForSamples(withStart: startDate, end: nil, options: .strictEndDate)
-        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:[datePredicate])
-        
-        let heartRateQuery = HKAnchoredObjectQuery(type: quantityType!, predicate: predicate, anchor: nil, limit: Int(HKObjectQueryNoLimit)) { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
-            //Do nothing
-        }
-        
-        heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
-            guard let samples = samples as? [HKQuantitySample] else {return}
-            DispatchQueue.main.async {
-                guard let sample = samples.first else { return }
-                let value = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
-//                print("This line is executed!")
-                self.labelHeart.setText(String(UInt16(value))) //Update label
-            }
-            
-        }
-        
-        return heartRateQuery
-    }
-    
-}
+//extension InterfaceController: HKWorkoutSessionDelegate{
+//    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
+//        print("State: \(toState.rawValue)")
+//        switch toState {
+//        case .running:
+//            print(date)
+//            if let query = heartRateQuery(date){
+//                self.currentQuery = query
+//                healthStore.execute(query)
+//            }
+//        //Execute Query
+//        case .stopped:
+//            //Stop Query
+//            print("STOP: \(date)")
+//            healthStore.stop(self.currentQuery!)
+//            session?.end()
+//            session = nil
+//        default:
+//            print("Unexpected state: \(toState.rawValue)")
+//        }
+//    }
+//
+//    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
+//        //Do Nothing
+//    }
+//
+//    func startWorkout(){
+//        // If a workout has already been started, do nothing.
+//        if (session != nil) {
+//            return
+//        }
+//        // Configure the workout session.
+//        let workoutConfiguration = HKWorkoutConfiguration()
+//        workoutConfiguration.activityType = .badminton
+//        workoutConfiguration.locationType = .indoor
+//
+//        do {
+//            session = try HKWorkoutSession(healthStore: healthStore, configuration: workoutConfiguration)
+//            session?.delegate = self
+//        } catch {
+//            fatalError("Unable to create workout session")
+//        }
+//
+//
+//        session?.startActivity(with: Date())
+//        print("Start Workout Session")
+//    }
+//
+//    func heartRateQuery(_ startDate: Date) -> HKQuery? {
+//        let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)
+//        let datePredicate = HKQuery.predicateForSamples(withStart: startDate, end: nil, options: .strictEndDate)
+//        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:[datePredicate])
+//
+//        let heartRateQuery = HKAnchoredObjectQuery(type: quantityType!, predicate: predicate, anchor: nil, limit: Int(HKObjectQueryNoLimit)) { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
+//            //Do nothing
+//        }
+//
+//        heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
+//            guard let samples = samples as? [HKQuantitySample] else {return}
+//            DispatchQueue.main.async {
+//                guard let sample = samples.first else { return }
+//                let value = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
+////                print("This line is executed!")
+//                self.labelHeart.setText(String(UInt16(value))) //Update label
+//            }
+//
+//        }
+//
+//        return heartRateQuery
+//    }
+//
+//}

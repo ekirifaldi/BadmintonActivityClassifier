@@ -8,7 +8,7 @@
 
 import UIKit
 import WatchConnectivity
-import HealthKit
+//import HealthKit
 import CoreML
 
 class ViewController: UIViewController {
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         shape: [ModelConstants.stateInLength as NSNumber],
         dataType: MLMultiArrayDataType.double)
     
-    let healthStore = HKHealthStore()
+//    let healthStore = HKHealthStore()
     var wcSession : WCSession! = nil
     
     // Initialize the model, layers, and sensor data arrays
@@ -68,17 +68,17 @@ class ViewController: UIViewController {
         
         print("viewDidLoad")
         
-        let allTypes = Set([HKObjectType.workoutType(),
-                            HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
-                            HKObjectType.quantityType(forIdentifier: .distanceCycling)!,
-                            HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
-                            HKObjectType.quantityType(forIdentifier: .heartRate)!])
-        
-        healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
-            if !success {
-                // Handle the error here.
-            }
-        }
+//        let allTypes = Set([HKObjectType.workoutType(),
+//                            HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+//                            HKObjectType.quantityType(forIdentifier: .distanceCycling)!,
+//                            HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+//                            HKObjectType.quantityType(forIdentifier: .heartRate)!])
+//
+//        healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
+//            if !success {
+//                // Handle the error here.
+//            }
+//        }
     }
     
     @IBAction func btnStopPressed(_ sender: UIButton) {
