@@ -37,7 +37,7 @@ class InterfaceController: WKInterfaceController {
     
     var isRecording = false
     let sensorsUpdateFrequency = 1.0 / 75.0
-    let predictionWindowSize = 80
+    let predictionWindowSize = 90
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
