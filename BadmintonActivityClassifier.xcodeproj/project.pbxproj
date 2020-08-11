@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0D3EA024E271F200075252 /* BadmintonActivityClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D3E9F24E271F200075252 /* BadmintonActivityClassifier.mlmodel */; };
 		3D1AEA5024D05FFB0089CE63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AEA4F24D05FFB0089CE63 /* AppDelegate.swift */; };
 		3D1AEA5224D05FFB0089CE63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AEA5124D05FFB0089CE63 /* SceneDelegate.swift */; };
 		3D1AEA5424D05FFB0089CE63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AEA5324D05FFB0089CE63 /* ViewController.swift */; };
@@ -20,7 +21,6 @@
 		3D1AEA7524D05FFE0089CE63 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AEA7424D05FFE0089CE63 /* InterfaceController.swift */; };
 		3D1AEA7724D05FFE0089CE63 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AEA7624D05FFE0089CE63 /* ExtensionDelegate.swift */; };
 		3D1AEA7924D05FFE0089CE63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D1AEA7824D05FFE0089CE63 /* Assets.xcassets */; };
-		3D7BED7F24E15D9B00DC8E90 /* BadmintonActivityClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3D7BED7E24E15D9A00DC8E90 /* BadmintonActivityClassifier.mlmodel */; };
 		3D866C3724D064FD00E51CD9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D866C3624D064FD00E51CD9 /* HealthKit.framework */; };
 		3D866C3A24D0652A00E51CD9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D866C3924D0652A00E51CD9 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D0D3E9F24E271F200075252 /* BadmintonActivityClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BadmintonActivityClassifier.mlmodel; sourceTree = "<group>"; };
 		3D1AEA4C24D05FFB0089CE63 /* BadmintonActivityClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BadmintonActivityClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D1AEA4F24D05FFB0089CE63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D1AEA5124D05FFB0089CE63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		3D1AEA7624D05FFE0089CE63 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		3D1AEA7824D05FFE0089CE63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D1AEA7A24D05FFE0089CE63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D7BED7E24E15D9A00DC8E90 /* BadmintonActivityClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BadmintonActivityClassifier.mlmodel; sourceTree = "<group>"; };
 		3D866C3424D064FD00E51CD9 /* BadmintonActivityClassifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BadmintonActivityClassifier.entitlements; sourceTree = "<group>"; };
 		3D866C3624D064FD00E51CD9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		3D866C3824D0652A00E51CD9 /* BadmintonActivityClassifier WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BadmintonActivityClassifier WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 				3D1AEA5324D05FFB0089CE63 /* ViewController.swift */,
 				3D1AEA5524D05FFB0089CE63 /* Main.storyboard */,
 				3D1AEA5824D05FFD0089CE63 /* Assets.xcassets */,
-				3D7BED7E24E15D9A00DC8E90 /* BadmintonActivityClassifier.mlmodel */,
+				3D0D3E9F24E271F200075252 /* BadmintonActivityClassifier.mlmodel */,
 				3D1AEA5A24D05FFD0089CE63 /* LaunchScreen.storyboard */,
 				3D1AEA5D24D05FFD0089CE63 /* Info.plist */,
 			);
@@ -313,7 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D1AEA5424D05FFB0089CE63 /* ViewController.swift in Sources */,
-				3D7BED7F24E15D9B00DC8E90 /* BadmintonActivityClassifier.mlmodel in Sources */,
+				3D0D3EA024E271F200075252 /* BadmintonActivityClassifier.mlmodel in Sources */,
 				3D1AEA5024D05FFB0089CE63 /* AppDelegate.swift in Sources */,
 				3D1AEA5224D05FFB0089CE63 /* SceneDelegate.swift in Sources */,
 			);

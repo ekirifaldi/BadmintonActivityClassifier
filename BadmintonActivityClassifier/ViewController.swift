@@ -15,9 +15,9 @@ class ViewController: UIViewController {
     
     struct ModelConstants {
         // Must be the same value you used while training
-        static let predictionWindowSize = 80
+        static let predictionWindowSize = 30
         // Must be the same value you used while training
-        static let sensorsUpdateFrequency = 1.0 / 75.0
+        static let sensorsUpdateFrequency = 1.0 / 10.0
         static let stateInLength = 400
         //        https://apple.github.io/turicreate/docs/userguide/activity_classifier/export_coreml.html
     }
@@ -108,7 +108,7 @@ extension ViewController: WCSessionDelegate {
             //            csvString = csvString.appending(csv)
             convertCsvStrToArray(csvStr: csv)
 
-            createCsv(csvStr: csv)
+//            createCsv(csvStr: csv)
         }
         
     }
