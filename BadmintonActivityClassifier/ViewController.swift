@@ -168,6 +168,7 @@ extension ViewController {
                 self.currentIndexInPredictionWindow += 1
                 
                 print(self.currentIndexInPredictionWindow)
+                print(self.accX!)
                 // If data array is full - execute a prediction
                 if (self.currentIndexInPredictionWindow == ModelConstants.predictionWindowSize) {
                     // Move to main thread to update the UI
