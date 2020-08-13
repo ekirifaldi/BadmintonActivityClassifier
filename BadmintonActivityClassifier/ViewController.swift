@@ -147,9 +147,10 @@ extension ViewController {
         
         // Update the state vector
         currentState = modelPrediction?.stateOut
-        
+
+        print(modelPrediction?.labelProbability) //cek lob salah betul
         // Return the predicted activity
-        return modelPrediction?.label
+        return modelPrediction?.label //lob_betul, lob_salah, nil
     }
     
     func convertCsvStrToArray(csvStr: String) {
