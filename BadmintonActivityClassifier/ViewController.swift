@@ -8,14 +8,14 @@
 
 import UIKit
 import WatchConnectivity
-import HealthKit
+//import HealthKit
 import CoreML
 
 class ViewController: UIViewController {
     
     struct ModelConstants {
         // Must be the same value you used while training
-        static let predictionWindowSize = 6
+        static let predictionWindowSize = 80
         // Must be the same value you used while training
         static let sensorsUpdateFrequency = 1.0 / 75.0
         static let stateInLength = 400
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         shape: [ModelConstants.stateInLength as NSNumber],
         dataType: MLMultiArrayDataType.double)
     
-    let healthStore = HKHealthStore()
+//    let healthStore = HKHealthStore()
     var wcSession : WCSession! = nil
     
     // Initialize the model, layers, and sensor data arrays
@@ -66,23 +66,27 @@ class ViewController: UIViewController {
         wcSession.delegate = self
         wcSession.activate()
         
-        let allTypes = Set([HKObjectType.workoutType(),
-                            HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
-                            HKObjectType.quantityType(forIdentifier: .distanceCycling)!,
-                            HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
-                            HKObjectType.quantityType(forIdentifier: .heartRate)!])
         
-        healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
-            if !success {
-                // Handle the error here.
-            }
-        }
+//        let allTypes = Set([HKObjectType.workoutType(),
+//                            HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+//                            HKObjectType.quantityType(forIdentifier: .distanceCycling)!,
+//                            HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+//                            HKObjectType.quantityType(forIdentifier: .heartRate)!])
+//
+//        healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
+//            if !success {
+//                // Handle the error here.
+//            }
+//        }
     }
     
     @IBAction func btnStopPressed(_ sender: UIButton) {
         sendInstruction(strInstruction: "STOP")
     }
     
+    @IBAction func btnStartPressed(_ sender: UIButton) {
+        sendInstruction(strInstruction: "START")
+    }
 }
 
 
@@ -93,15 +97,14 @@ extension ViewController: WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print("MESSAGE")
         if let instruction = message["instructionFromWatch"] as? String {
             print(instruction)
         }
         
         if let csv = message["motionFromWatch"] as? String {
-            print(csv)
-            //            csvString = csvString.appending(csv)
             convertCsvStrToArray(csvStr: csv)
+
+            createCsv(csvStr: csv)
         }
         
     }
@@ -140,9 +143,9 @@ extension ViewController {
         
         // Update the state vector
         currentState = modelPrediction?.stateOut
-        
+
         // Return the predicted activity
-        return modelPrediction?.label
+        return modelPrediction?.label //lob_betul, lob_salah, nil
     }
     
     func convertCsvStrToArray(csvStr: String) {
@@ -159,19 +162,34 @@ extension ViewController {
                 
                 // Update prediction array index
                 self.currentIndexInPredictionWindow += 1
-                
                 // If data array is full - execute a prediction
                 if (self.currentIndexInPredictionWindow == ModelConstants.predictionWindowSize) {
                     // Move to main thread to update the UI
                     DispatchQueue.main.async {
                         // Use the predicted activity
-//                        self.label.text = self.activityPrediction() ?? "N/A" 
-                        print(self.activityPrediction() ?? "N/A")
+                        print("PREDICTION: \(self.activityPrediction() ?? "N/A")")
                     }
                     // Start a new prediction window from scratch
                     self.currentIndexInPredictionWindow = 0
                 }
             }
+        }
+    }
+    
+    //MARK: - Export csv
+    func createCsv(csvStr: String){
+        let fileManager = FileManager.default
+        do {
+            let path = try fileManager.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: false)
+            let fileURL = path.appendingPathComponent("CSVRecAcceGyro.csv")
+            try csvStr.write(to: fileURL, atomically: true, encoding: .utf8)
+            let items = [fileURL]
+            let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            DispatchQueue.main.async {
+                self.present(ac, animated: true)
+            }
+        } catch {
+            print("error creating file")
         }
     }
 }
