@@ -66,7 +66,6 @@ class ViewController: UIViewController {
         wcSession.delegate = self
         wcSession.activate()
         
-        print("viewDidLoad")
         
 //        let allTypes = Set([HKObjectType.workoutType(),
 //                            HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
@@ -98,14 +97,11 @@ extension ViewController: WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print("MESSAGE")
         if let instruction = message["instructionFromWatch"] as? String {
             print(instruction)
         }
         
         if let csv = message["motionFromWatch"] as? String {
-//            print(csv)
-            //            csvString = csvString.appending(csv)
             convertCsvStrToArray(csvStr: csv)
 
             createCsv(csvStr: csv)
@@ -148,7 +144,6 @@ extension ViewController {
         // Update the state vector
         currentState = modelPrediction?.stateOut
 
-        print(modelPrediction?.labelProbability) //cek lob salah betul
         // Return the predicted activity
         return modelPrediction?.label //lob_betul, lob_salah, nil
     }
@@ -167,15 +162,11 @@ extension ViewController {
                 
                 // Update prediction array index
                 self.currentIndexInPredictionWindow += 1
-                
-                print(self.currentIndexInPredictionWindow)
-                print(self.accX!)
                 // If data array is full - execute a prediction
                 if (self.currentIndexInPredictionWindow == ModelConstants.predictionWindowSize) {
                     // Move to main thread to update the UI
                     DispatchQueue.main.async {
                         // Use the predicted activity
-//                        self.label.text = self.activityPrediction() ?? "N/A" 
                         print("PREDICTION: \(self.activityPrediction() ?? "N/A")")
                     }
                     // Start a new prediction window from scratch
@@ -191,7 +182,6 @@ extension ViewController {
         do {
             let path = try fileManager.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: false)
             let fileURL = path.appendingPathComponent("CSVRecAcceGyro.csv")
-            print(fileURL)
             try csvStr.write(to: fileURL, atomically: true, encoding: .utf8)
             let items = [fileURL]
             let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
